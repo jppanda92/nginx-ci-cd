@@ -21,7 +21,7 @@
 server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
-        server_name 52.207.48.72;
+        server_name localhost;
         return 302 https://$server_name$request_uri;
 }
 

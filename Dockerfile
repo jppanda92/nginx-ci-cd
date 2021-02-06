@@ -16,6 +16,13 @@ EXPOSE 443
 COPY nginx/ssl /etc/nginx/ssl
 COPY nginx/snippets /etc/nginx/snippets
 COPY nginx/sites-available /etc/nginx/sites-available
+COPY nginx/ssl/nginx-selfsigned.crt /etc/ssl/certs/nginx-selfsigned.crt
+COPY nginx/ssl/nginx-selfsigned.key /etc/ssl/private/nginx-selfsigned.key
+COPY nginx/ssl/dhparam.pem /etc/ssl/certs/dhparam.pem
+
+#RUN chown -R root:root /etc/nginx/ssl
+#RUN chmod -R 600 /etc/nginx/ssl
+
 
 ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
 
